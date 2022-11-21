@@ -10,7 +10,7 @@ RUN apt install curl -y
 
 # install Rust
 RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
-RUN source "$HOME/.cargo/env"
+RUN . "$HOME/.cargo/env"
 
 # install Sui testnet client
-RUN cargo install --locked --git https://github.com/MystenLabs/sui.git --branch testnet sui
+RUN $HOME/.cargo/bin/cargo install --locked --git https://github.com/MystenLabs/sui.git --branch testnet sui
